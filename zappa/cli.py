@@ -2634,6 +2634,9 @@ class ZappaCLI:
         async_response_table = self.stage_config.get("async_response_table", "")
         settings_s += "ASYNC_RESPONSE_TABLE='{0!s}'\n".format(async_response_table)
 
+        asgi = self.stage_config.get("asgi", False)
+        settings_s += "ASGI=%s" % asgi
+
         # additional_text_mimetypes
         additional_text_mimetypes = self.stage_config.get("additional_text_mimetypes", [])
         settings_s += f"ADDITIONAL_TEXT_MIMETYPES={additional_text_mimetypes}\n"
